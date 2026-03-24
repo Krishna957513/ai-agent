@@ -1,35 +1,26 @@
-import datetime
-import os
+import requests
 
-print("AI Agent Ready 😎 (type 'exit' to stop)")
+print("Real AI Ready 😎 (type 'exit' to stop)")
 
 while True:
-    user_input = input("Tum: ").lower()
+    user_input = input("Tum: ")
 
-    if user_input == "exit":
+    if user_input.lower() == "exit":
         print("AI: Bye 👋")
         break
 
-    elif "time" in user_input:
-        print("AI:", datetime.datetime.now())
+    try:
+        response = requests.post(
+            "http://localhost:11434/api/generate",
+            json={
+                "model": "llama3",
+                "prompt": user_input,
+                "stream": False
+            }
+        )
 
-    elif "open notepad" in user_input:
-        os.system("notepad")
-        print("AI: Notepad open ho gaya")
+        data = response.json()
+        print("AI:", data['response'])
 
-    elif "calculate" in user_input:
-        try:
-            expr = user_input.replace("calculate", "")
-            print("AI:", eval(expr))
-        except:
-            print("AI: Error hai")
-
-    # 🔥 NEW ADD KAR
-    elif "hello" in user_input or "hi" in user_input:
-        print("AI: Hello bhai 😎")
-
-    elif "how are you" in user_input:
-        print("AI: Main mast hu, tu bata 😄")
-
-    else:
-        print("AI: Samajh nahi aaya 😅")
+    except:
+        print("AI: Error aa gaya 😅 (check Ollama running hai ya nahi)")
