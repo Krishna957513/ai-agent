@@ -1,20 +1,48 @@
-# 🤖 AI Agent (Python)
+# 🤖 AI Chatbot using Ollama (Llama 3)
 
-This is my first AI Agent built using Python.
+This project is a simple AI chatbot built using Python and Ollama (Llama 3 model).
+
+It was initially a basic chatbot and later upgraded to a real AI-powered assistant.
+
+---
 
 ## 🚀 Features
-- Tells current time
-- Performs calculations
-- Opens Notepad
-- Basic chat responses
 
-## 🛠️ Tech Used
-- Python
+- Real AI responses  
+- Runs locally (no API key needed)  
+- Understands user questions  
+- Continuous chat support  
 
-## ▶️ How to Run
-1. Download the file
-2. Run:
-   python ai_agent.py
+---
 
-## 👨‍💻 Author
-Ayush Kumar
+## 🛠️ Technologies Used
+
+- Python  
+- Ollama  
+- Llama 3  
+- Requests  
+
+---
+
+## 📂 Files
+
+- ai_agents.py → Basic chatbot  
+- ai_ollama.py → Real AI chatbot  
+
+---
+
+## ⚙️ Setup
+
+Run the following commands:
+
+```bash
+pip install requests
+```
+
+```bash
+ollama run llama3
+```
+
+```bash
+python ai_ollama.py
+```
